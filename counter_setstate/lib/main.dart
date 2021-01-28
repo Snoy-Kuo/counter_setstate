@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'colors_util.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -10,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Counter setState',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: createMaterialColor(Color(0xFF2B64A3)),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Counter setState'),
@@ -35,6 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,10 +63,24 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            key: Key('main_increment_fab'),
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: Icon(Icons.add),
+          ),
+          const SizedBox(height: 10),
+          FloatingActionButton(
+            key: Key('main_decrement_fab'),
+            onPressed: _decrementCounter,
+            tooltip: 'Decrement',
+            child: Icon(Icons.remove),
+          ),
+        ],
       ),
     );
   }
