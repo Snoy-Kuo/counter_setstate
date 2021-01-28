@@ -19,8 +19,8 @@ Counter App using simple setState to manage state.
 ## Try
 
  - modify theme primarySwatch to custom MaterialColor of 0xFF2B64A3, and hot reload to see changes.
- - add decrease FAB below increase FAB.
- - add test to verify decrease function as expected.
+ - add decrement FAB below increment FAB.
+ - add test to verify decrement function as expected.
 
 
  The final result is on final_result branch.
